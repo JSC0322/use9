@@ -2,22 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://asweet.com.tw/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://asweet.com.tw/products</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://asweet.com.tw/shop/vanilla-chocolate-cake</loc>
-  </url>
-  <url>
-    <loc>https://asweet.com.tw/shop/berries-cake</loc>
-  </url>
-  <url>
-    <loc>https://asweet.com.tw/shop/pearl-milk-tea-cake</loc>
-  </url>
-  <url>
-    <loc>https://asweet.com.tw/shop/matcha-cake</loc>
-  </url>
-   <!-- 加上其他重要頁面 -->
 </urlset>

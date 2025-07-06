@@ -1,0 +1,229 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FFE5BF;
+    color: #000;
+}
+header {
+    background-color: rgba(255, 174, 0, 0.9);
+    padding: 20px;
+    text-align: center;
+}
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    color: white;
+}
+nav {
+    margin-top: 10px;
+}
+nav a {
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+nav a:hover {
+    background-color: rgba(255, 100, 0, 0.8);
+    border-radius: 5px;
+}
+main {
+    padding: 20px;
+}
+section.news, section.hot-products {
+    margin-bottom: 40px;
+    text-align: center;
+}
+section.news ul {
+    list-style: none;
+    padding: 0;
+}
+section.news li {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+.hot-product-card {
+    background-color: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    width: 300px;
+    border-radius: 15px;
+}
+.cart-btn {
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin-top: 10px;
+    font-size: 1em;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.cart-btn:hover {
+    background-color: #ff3b2e;
+}
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(255, 174, 0, 0.9);
+}
+.product-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.product-card {
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 300px;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+.order-section {
+    text-align: center;
+}
+.order-card {
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 20px auto;
+    padding: 30px;
+    width: 350px;
+    border-radius: 15px;
+    text-align: left;
+}
+.carousel {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+.carousel-container {
+    width: 380px;
+    height: 400px;
+    position: relative;
+    margin: auto;
+}
+.carousel-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+.carousel-image.active {
+    opacity: 1;
+}
+.banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.banner img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  display: block;
+}
+.banner-text {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #fff;
+  background: rgba(0,0,0,0.45);
+  padding: 10px 20px;
+  border-radius: 12px;
+}
+.events {
+  padding: 40px 20px;
+}
+.events h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #ff7043;
+}
+.event-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.event-card.show { /* Intersection Observer 觸發 */
+  opacity: 1;
+  transform: translateY(0);
+}
+.event-card img {
+  width: 100%;
+  max-width: 320px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+@media (min-width: 600px) {
+  .event-card img { border-radius: 12px 0 0 12px; }
+}
+.event-info {
+  flex: 1;
+  padding: 20px;
+}
+.event-date,
+.event-place { font-weight: bold; margin: 4px 0; }
+.event-desc { margin: 10px 0 15px; line-height: 1.5; }
+.cart-btn.small { padding: 8px 16px; font-size: 0.9em; }
+
+nav .active-link {
+  background-color: rgba(255, 100, 0, 0.8);
+  border-radius: 5px;
+}
+.white-box {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.white-box h2 {
+  color: #ff7043;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.white-box p,
+.white-box ul {
+  font-size: 1.1em;
+  color: #000;
+  line-height: 1.6;
+}
+.white-box ul {
+  padding-left: 20px;
+}
+
+.category-buttons button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 20px;
+  background-color: #ff6f61;
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
+}
+.category-buttons button:hover {
+  background-color: #ff3b2e;
+}
+
+
+
