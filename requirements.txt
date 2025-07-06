@@ -1,0 +1,4 @@
+Flask
+gspread
+Flask-Dance
+oauth2client
