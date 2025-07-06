@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>訂購資訊 - 一口甜冰淇淋</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <style>
+    .order-form {
+      max-width: 800px;
+      margin: auto;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 12px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .submit-btn {
+      background-color: #ff6f61;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1em;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+  <header>
+    <h1>一口甜冰淇淋</h1>
+    <nav>
+        <a href="/">回首頁</a>
+    </nav>
+  </header>
+<body>
+  <main class="order-form">
+    <h2>訂購資訊</h2>
+    <div id="order-summary"></div>
+    <form onsubmit="submitOrder(event)">
+      <label>姓名 *</label>
+      <input type="text" id="name" required>
+      <div class="form-group">
+        <label>電子郵件（選填）</label>
+        <input type="email" id="email">
+      </div>
+      <div class="form-group">
+        <label>電話號碼 *</label>
+        <input type="tel" id="phone" required>
+      </div>
+      <div class="form-group">
+        <label>取貨方式 *</label>
+        <select id="store-type" required onchange="toggleStoreName()">
+          <option value="">請選擇便利商店</option>
+          <option value="711">7-11</option>
+          <option value="family">全家</option>
+        </select>
+      </div>
+      <div class="form-group" id="store-name-group" style="display:none">
+        <label>門市店名 *</label>
+        <small style="color: gray;">請填寫 7-11 或全家門市的名稱，例如：「北港順風門市」並注意相似字。</small>
+        <input type="text" id="store-name" required>
+      </div>
+      <div class="form-group">
+        <label>取貨時間 *</label>
+        <input type="date" id="pickup-time" required>
+      </div>
+      <button class="submit-btn" type="submit">送出訂單</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>客服電話：<a href="tel:0970575765">0970-575-765</a></p>
+    <p>客服信箱：<a href="mailto:sweet@asweet.com.tw">sweet@asweet.com.tw</a></p>
+    <p>週一至週五 9:00~14:00</p>
+    <p>&copy; 2025 一口甜冰淇淋 All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const summary = document.getElementById('order-summary');
+    let summaryHTML = '<ul>';
+    cart.forEach(item => {
+      summaryHTML += `<li>${item.name} (${item.size}) x ${item.quantity} - NT$${item.price * item.quantity}</li>`;
+    });
+    summaryHTML += '</ul>';
+    summary.innerHTML = '<h3>訂單內容：</h3>' + summaryHTML;
+
+    function toggleStoreName() {
+      const storeType = document.getElementById('store-type').value;
+      const storeNameGroup = document.getElementById('store-name-group');
+      if (storeType) {
+        storeNameGroup.style.display = 'block';
+      } else {
+        storeNameGroup.style.display = 'none';
+      }
+    }
+
+    function submitOrder(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const storeType = document.getElementById("store-type").value;
+      const storeName = document.getElementById("store-name").value.trim();
+      const pickupTime = document.getElementById("pickup-time").value;
+      
+      // ✅ 基本前端驗證（不寫 email 沒關係）
+      if (!phone || !storeType || !storeName || !pickupTime) {
+        alert("請填寫所有必填欄位！");
+        return;
+      }
+      
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      if (cart.length === 0) {
+        alert("購物車是空的，請先選購商品！");
+        return;
+      }
+
+      const orderData = {
+        name,
+        email: email || "無",
+        phone,
+        storeType,
+        storeName,
+        pickupTime,
+        cart
+      };
+      
+      fetch("/submit_order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(orderData)
+      }).then(res => {
+        if (res.ok) {
+          alert("訂單已送出，感謝您的訂購！");
+          localStorage.setItem("latest_order", JSON.stringify(orderData));
+          localStorage.removeItem("cart");
+          window.location.href = "/thanks";
+        } else {
+          alert("送出失敗，請稍後再試。");
+        }
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>所有商品 - 一口甜冰淇淋</title>
+  <link rel="icon" href="/static/favicon.jpg" type="image/jpeg">
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="canonical" href="https://asweet.com.tw/">
+  <meta name="description" content="一口甜冰淇淋 - 客製化冰淇淋蛋糕，美味又療癒，歡迎線上訂購！">
+  <meta name="keywords" content="一口甜, 一口甜冰淇淋, 冰淇淋蛋糕, 冰淇淋, 蛋糕, 生日蛋糕, 父親節, 中秋節, 甜點, 慶生">
+  <meta name="author" content="一口甜冰淇淋">
+  <style>
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin: 40px auto;
+      max-width: 1000px;
+    }
+    .product-card {
+      width: 260px;
+      border-radius: 12px;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+      text-align: center;
+      padding: 20px;
+    }
+    .product-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .product-card h3 {
+      margin-top: 15px;
+      color: #333;
+    }
+    .product-card p {
+      color: #777;
+      font-size: 0.95em;
+    }
+    .product-card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #ff6f61;
+      color: white;
+      text-decoration: none;
+      border-radius: 20px;
+    }
+    .product-card a:hover {
+      background-color: #ff3b2e;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>一口甜冰淇淋</h1>
+    <nav>
+      <a href="/">回首頁</a>
+      <a href="/products?category=ice_cream_cake">冰淇淋蛋糕</a>
+      <a href="/products?category=popsicle">冰棒</a>
+      <a href="/products?category=long-cake">冰淇淋長條蛋糕</a>
+      <a href="/cart">購物車</a>
+    </nav>
+  </header>
+
+  <main>
+<!--     <div class="product-grid">
+      <div class="product-card">
+        <h3>冰棒特惠組</h3>
+        <p>冰棒特惠組，三種組合任選，真材實料、清涼消暑，全家人都愛的夏日甜點首選！</p>
+        <a href="https://www.facebook.com/share/p/1AUzPKvH7n/" target="_blank">詳情請見臉書粉絲團</a>
+        <p>廣告</p>
+      </div>
+    </div> -->
+    <div class="product-grid">
+      {% for item in products.values() %}
+      <div class="product-card">
+        <img src="{{ item.image }}" alt="{{ item.name }}">
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.short }}</p>
+        <a href="/shop/{{ item.id }}">查看詳情</a>
+      </div>
+      {% endfor %}
+    </div>
+  </main>
+
+  <footer>
+    <p>客服電話：<a href="tel:0970575765">0970-575-765</a></p>
+    <p>客服信箱：<a href="mailto:sweet@asweet.com.tw">sweet@asweet.com.tw</a></p>
+    <p>週一至週五 9:00~14:00</p>
+    <p>&copy; 2025 一口甜冰淇淋 All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    
+    function filterCategory(category) {
+  const cards = document.querySelectorAll('.product-card');
+  cards.forEach(card => {
+    const itemCat = card.getAttribute('data-category');
+    if (category === 'all' || itemCat === category) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+  
+</body>
+</html>
+
+

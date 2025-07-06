@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>活動資訊</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>活動資訊</h1>
+        <nav>
+            <a href="/">回首頁</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hot-products">
+            <h2>目前活動</h2>
+            {% for act in activities %}
+            <div class="hot-product-card">
+                <h3>{{ act.title }}</h3>
+                <img src="{{ act.image }}" alt="{{ act.title }}" style="width:100%;max-width:300px;">
+                <p>{{ act.description }}</p>
+                <p>活動期間：{{ act.start_date }} ~ {{ act.end_date }}</p>
+                <a href="{{ act.url }}" class="cart-btn">了解更多</a>
+            </div>
+            {% endfor %}
+        </section>
+    </main>
+
+    <footer>
+        <p>客服電話：<a href="tel:0970575765">0970-575-765</a></p>
+        <p>客服信箱：<a href="mailto:sweet@asweet.com.tw">sweet@asweet.com.tw</a></p>
+        <p>週一至週五 9:00~14:00</p>
+        <p>&copy; 2025 一口甜冰淇淋 All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
