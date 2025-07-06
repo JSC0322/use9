@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一口甜冰淇淋</title>
+    <link rel="icon" href="/static/favicon.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="canonical" href="https://asweet.com.tw/">
+    <meta name="google-site-verification" content="I70mN5YYlNrvTuJyDyAioETfWKhwDUCU2Vu1hdAE5vM" />
+    <meta name="description" content="一口甜冰淇淋 - 客製化冰淇淋蛋糕，美味又療癒，歡迎線上訂購！">
+    <meta name="keywords" content="一口甜, 一口甜冰淇淋, 冰淇淋蛋糕, 冰淇淋, 蛋糕, 生日蛋糕, 父親節, 中秋節, 甜點, 慶生">
+    <meta name="author" content="一口甜冰淇淋">
+</head>
+<body>
+
+<header>
+    <h1>一口甜冰淇淋</h1>
+    <nav>
+        <a href="/">首頁</a>
+        <a href="/products?category=all">所有商品</a>
+        <a href="/about">關於我們</a>
+        <a href="/cart">購物車</a>
+    </nav>
+</header>
+
+<main>
+   <section class="carousel">
+       <div class="carousel-container">
+           <img src="https://lh3.googleusercontent.com/P0aPEVe742sZVgFug1W1RsaKjN7QDFT1aoAjTkWPL9mr0hXtcTgUko42oLoXVNRzoItOzyZSDeRrKFXS3QCm5ZAyPJvs3NLlm3KyKMoPe_g3zwOTwRXYiaUZjER73yJyAMjZw6xLRWcvQGGtYnVXF6Y8uGpzltGueDaNeC0wCmrSryyY9A=w260?key=f3LMdrebQNMgqn96gxJSfw" class="carousel-image active">
+           <img src="https://lh4.googleusercontent.com/-Sa_GCkb3RH317i07sQxtxez-dt0Jn6YABuaiP-OD7og3zZoSglAaY6fcN1tF0jsi9zlLELCZ9NHoAsIMCOpTv2RGJ0-aMRPMXYBIgw0Bsqqu4QquQDYdX4w2Oa3O8JTc7aDKulhY-mN7RqMDjdfBQsvgmealJTZyiOzaYK1tP9iZ0yvbw=w260?key=f3LMdrebQNMgqn96gxJSfw" class="carousel-image">
+           <img src="https://lh6.googleusercontent.com/PpNP3MtQr3bDhgEBBVWBt6x9gH-6X7x49EQ87n_ZcuVkQm-pjKzkAjVTy6wyh_k20cgXj28-rLkORnvNSMdZN7y2PB_vIYMEk1NLGBU7R0o11MmtOeuZiwbj_9F6PvtnpkHd7nex99HsASgTNK-9J8kj99cmQJiSZR_nv7LBQyxCjMMJhQ=w260?key=f3LMdrebQNMgqn96gxJSfw" class="carousel-image">
+           <img src="https://lh5.googleusercontent.com/fEypdajlNOr_VHB-PA5nHUxbk--7tUSJT4wagCbmWQaoKGAen6BCjTthSh77Uo9ciAQKJ-dQV2EpdqQFIqNGdYGDf7tQotFC8JrXx9q5vqUcTSQ15hsCtOxLkvMOIv7CKKKwiPWUnEs8lRWcHGEMwDXQXvP3HnRoPdiizrNmZdyqXqLkgA=w260?key=f3LMdrebQNMgqn96gxJSfw" class="carousel-image">
+           <img src="https://lh4.googleusercontent.com/jpxOLDKsRmTNT9x5cK6MnfQk9Px4zlU588_MtjQu7BmE33oBVrlWOyFBJMOcDD0_biwWSwhPLnqH1WY10tyfmJ8AfqgPMF6yx7T3caXa7WpKkEuZ2asY4GG-Vs91lTNqVy8oFftNfrZJ7qoXcMjNdWlZYqjjyooMi_PN14qykb6RGlMLCA=w260?key=f3LMdrebQNMgqn96gxJSfw" class="carousel-image">
+       </div>
+    </section> 
+    
+    <section class="news">
+        <h2>最新消息</h2>
+        <ul>
+            <li>980元起免運費!</li>
+<!--            <li>【公告】母親節優惠開跑！</li>  -->
+        </ul>
+    </section>
+
+    <section class="hot-products">
+        <h2>熱賣商品推薦</h2>
+        <div class="hot-product-card">
+            <h3>珍珠奶茶冰淇淋蛋糕</h3>
+            <p>Q彈珍珠＋香濃奶茶，冰火交融的口感！</p>
+            <a href="/shop/pearl-milk-tea-cake" class="cart-btn">了解更多</a>
+        </div>
+        <div class="hot-product-card">
+            <h3>綜合莓果冰淇淋蛋糕</h3>
+            <p>綜合莓果酸甜濃郁，搭配香濃冰淇淋與繽紛水果，層層口感，清爽又幸福。</p>
+            <a href="/shop/berries-cake" class="cart-btn">了解更多</a>
+        </div>
+    </section>
+    <section class="hot-products">
+    <h2>最新活動</h2>
+        {% if latest_activity %}
+        <div class="hot-product-card">
+            <h3>{{ latest_activity.title }}</h3>
+            <img src="{{ latest_activity.image }}" alt="{{ latest_activity.title }}" style="width:100%;max-width:300px;">
+            <p>{{ latest_activity.description }}</p>
+            <a href="{{ latest_activity.url }}" target="_blank" class="cart-btn">立即訂購</a>
+        </div>
+        {% else %}
+        <p>目前沒有進行中的活動</p>
+        {% endif %}
+    </section>
+
+</main>
+
+<footer>
+    <p>客服電話：<a href="tel:0970575765">0970-575-765</a></p>
+    <p>客服信箱：<a href="mailto:sweet@asweet.com.tw">sweet@asweet.com.tw</a></p>
+    <p>週一至週五 9:00~14:00</p>
+    <p>&copy; 2025 一口甜冰淇淋 All Rights Reserved.</p>
+</footer>
+<script>
+    let index = 0;
+    const images = document.querySelectorAll('.carousel-image');
+
+    function showNextImage() {
+        images[index].classList.remove('active');
+        index = (index + 1) % images.length;
+        images[index].classList.add('active');
+    }
+
+    setInterval(showNextImage, 3000); // 每 3 秒切換一張
+</script>
+</body>
+</html>
