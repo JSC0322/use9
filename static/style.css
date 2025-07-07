@@ -51,7 +51,7 @@ section.news li {
     border-radius: 15px;
 }
 .cart-btn {
-    background-color: rgba(139, 69, 19, 0.9);
+    background-color: rgba(244, 164, 96);
     color: white;
     border: none;
     padding: 12px 20px;
@@ -62,7 +62,7 @@ section.news li {
     transition: background-color 0.3s ease;
 }
 .cart-btn:hover {
-    background-color: rgba(139, 69, 19);
+    background-color: rgba(244, 164, 96);
 }
 footer {
     text-align: center;
